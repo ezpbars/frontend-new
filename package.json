@@ -17,10 +17,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "cross-env REACT_APP_LOGIN_URL=$LOGIN_URL react-scripts start",
+    "build": "cross-env REACT_APP_LOGIN_URL=$LOGIN_URL react-scripts build",
+    "test": "cross-env REACT_APP_LOGIN_URL=$LOGIN_URL react-scripts test",
+    "eject": "cross-env REACT_APP_LOGIN_URL=$LOGIN_URL react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
