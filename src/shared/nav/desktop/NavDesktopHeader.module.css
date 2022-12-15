@@ -1,0 +1,47 @@
+.container {
+    position: relative;
+    width: 100%;
+    padding: 80px;
+}
+
+.imageContainer {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.navOuterContainer {
+    display: flex;
+    padding: 2em;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(rgba(59, 62, 69, 0.9), rgba(85, 89, 99, 0.9));
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.15) 0px 2px 1px 0px inset;
+}
+
+.navContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logoContainer {
+    composes: header-bold from "../../typography.module.css";
+    color: #fff;
+    text-shadow: black -1px -1px 0px;
+}
+
+.bannerContainer {
+    padding: 4em 0 2em 0;
+    max-width: 950px;
+    margin: 0 auto;
+}

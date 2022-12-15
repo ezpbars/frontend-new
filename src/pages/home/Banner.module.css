@@ -1,0 +1,50 @@
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 1em 0;
+    margin-bottom: 1em;
+    justify-content: center;
+    border-top: 1px solid #a49e9e;
+    border-bottom: 1px solid #a49e9e;
+    width: 100%;
+}
+.header {
+    composes: header-regular from "../../shared/typography.module.css";
+    display: flex;
+    flex-direction: row;
+    font-size: 32px;
+}
+.logo {
+    composes: header-bold from "../../shared/typography.module.css";
+    margin-right: 0.25em;
+    font-size: 32px;
+    display: inline;
+    max-height: 43px;
+}
+.getStartedContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 2em 0;
+    border-top: 1px solid #a49e9e;
+    border-bottom: 1px solid #a49e9e;
+    margin-bottom: -60px;
+}
+.getStarted {
+    composes: header-regular from "../../shared/typography.module.css";
+    font-size: 1.75em;
+    margin-bottom: 0.5em;
+}
+.getStartedButton {
+    composes: header-bold from "../../shared/typography.module.css";
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(rgba(47, 104, 239, 0.9), rgba(31, 66, 156, 0.9));
+    border-radius: 16px;
+    padding: 0.5em 1em;
+    display: block;
+    width: 217px;
+    text-shadow: black -1px -1px 0px;
+}

@@ -1,0 +1,17 @@
+.container {
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.active {
+    background: rgba(0, 0, 0, 0.2);
+}
+.link {
+    composes: header-regular from "../../typography.module.css";
+    color: #fff;
+    text-decoration: none;
+}
+button {
+    background: transparent;
+    border: none;
+}
