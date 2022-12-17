@@ -1,0 +1,16 @@
+.container {
+    list-style: none;
+}
+.link {
+    composes: header-regular from "../../typography.module.css";
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+.childWrapper {
+    padding: 2px 8px;
+    background: rgba(75, 75, 75, 0.5);
+}
+.active .childWrapper {
+    background: rgba(170, 170, 170, 0.2);
+    border-radius: 4px;
+}

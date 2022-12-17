@@ -6,10 +6,7 @@ export const Banner = (): ReactElement => {
     return (
         <div className={styles.container}>
             <div className={styles.headerContainer}>
-                <h1 className={styles.header}>
-                    <strong className={styles.logo}>ezpbars:</strong>
-                    Easy, accurate progress bars
-                </h1>
+                <h1 className={styles.header}>ezpbars: Easy, accurate progress bars</h1>
             </div>
             <div className={styles.getStartedContainer}>
                 <div className={styles.getStarted}>Get started with ezpbars now!</div>

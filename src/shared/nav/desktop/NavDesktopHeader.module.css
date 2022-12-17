@@ -1,7 +1,8 @@
 .container {
     position: relative;
     width: 100%;
-    padding: 80px;
+    padding: 75px;
+    padding-bottom: 20px;
 }
 
 .imageContainer {

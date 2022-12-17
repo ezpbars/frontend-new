@@ -1,0 +1,68 @@
+.toggleOpenIcon {
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url("./icons/toggle-open.svg") no-repeat center center;
+    background-size: 100% 100%;
+}
+.toggleCloseIcon {
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url("./icons/toggle-close.svg") no-repeat center center;
+    background-size: 100% 100%;
+}
+.imageContainer {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.titlebarOuterContainer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+.closed {
+    height: 44px;
+    overflow: hidden;
+    transition: height 0.35s ease;
+}
+.open {
+    height: 209px;
+    overflow: hidden;
+    transition: height 0.35s ease;
+}
+.titlebarContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 8px 5px 8px;
+    background: linear-gradient(rgba(59, 62, 69, 0.9), rgba(85, 89, 99, 0.9));
+}
+.toggleContainer {
+    height: 24px;
+}
+.logoContainer {
+    margin: 0 auto;
+    composes: header-bold from "../../typography.module.css";
+    color: #fff;
+    text-shadow: black -1px -1px 0px;
+}

@@ -1,6 +1,7 @@
 import { PropsWithChildren, ReactElement } from "react";
 import { LoginProvider } from "./LoginContext";
 import { NavDesktopHeader } from "./nav/desktop/NavDesktopHeader";
+import { NavMobileHeader } from "./nav/mobile/NavMobileHeader";
 import styles from "./StandardPage.module.css";
 
 type StandardPageProps = {
@@ -18,7 +19,12 @@ export const StandardPage = ({ children, banner = undefined }: PropsWithChildren
     return (
         <LoginProvider>
             <div className={styles.container}>
-                <NavDesktopHeader banner={banner} />
+                <div className={styles.desktopHeaderContainer}>
+                    <NavDesktopHeader banner={banner} />
+                </div>
+                <div className={styles.mobileHeaderContainer}>
+                    <NavMobileHeader banner={banner} />
+                </div>
                 {children}
             </div>
         </LoginProvider>

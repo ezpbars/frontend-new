@@ -1,2 +1,16 @@
-.container {
+@media screen and (min-width: 992px) {
+    .mobileHeaderContainer {
+        display: none;
+    }
 }
+/* #region titlebar */
+@media screen and (max-width: 991px) {
+    .mobileHeaderContainer {
+        position: relative;
+        top: 0;
+    }
+    .desktopHeaderContainer {
+        display: none;
+    }
+}
+/* #endregion */
