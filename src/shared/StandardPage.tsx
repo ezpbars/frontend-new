@@ -2,6 +2,7 @@ import { PropsWithChildren, ReactElement } from "react";
 import { LoginProvider } from "./LoginContext";
 import { NavDesktopHeader } from "./nav/desktop/NavDesktopHeader";
 import { NavMobileHeader } from "./nav/mobile/NavMobileHeader";
+import { Footer } from "../pages/home/Footer";
 import styles from "./StandardPage.module.css";
 
 type StandardPageProps = {
@@ -26,6 +27,9 @@ export const StandardPage = ({ children, banner = undefined }: PropsWithChildren
                     <NavMobileHeader banner={banner} />
                 </div>
                 {children}
+                <div className={styles.footerContainer}>
+                    <Footer />
+                </div>
             </div>
         </LoginProvider>
     );

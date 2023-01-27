@@ -1,10 +1,11 @@
-import { ReactElement } from "react";
+import { ReactElement, useContext } from "react";
 import "../../../assets/fonts.css";
 import styles from "./NavDesktopHeader.module.css";
 import { NavDesktopHeaderLink } from "./NavDesktopHeaderLink";
 import img from "./assets/header-background.jpg";
 import linkStyles from "./NavDesktopHeaderLink.module.css";
 import { LoginButton } from "../../LoginButton";
+import { LoginContext } from "../../LoginContext";
 
 type NavDesktopHeaderProps = {
     /**
@@ -17,6 +18,7 @@ type NavDesktopHeaderProps = {
  * The header component for navigation for desktop
  */
 export const NavDesktopHeader = ({ banner = undefined }: NavDesktopHeaderProps): ReactElement => {
+    const loginContext = useContext(LoginContext);
     return (
         <div className={styles.container}>
             <div className={styles.imageContainer}>
@@ -29,7 +31,12 @@ export const NavDesktopHeader = ({ banner = undefined }: NavDesktopHeaderProps):
                     <NavDesktopHeaderLink path="/getting-started">Getting Started</NavDesktopHeaderLink>
                     <NavDesktopHeaderLink path="/how-to">How To</NavDesktopHeaderLink>
                     <NavDesktopHeaderLink path="/explanation">Explanation</NavDesktopHeaderLink>
-                    <NavDesktopHeaderLink path="/pricing">Pricing</NavDesktopHeaderLink>
+                    <NavDesktopHeaderLink path="/references">References</NavDesktopHeaderLink>
+                    {loginContext.state === "logged-in" ? (
+                        <NavDesktopHeaderLink path="/dashboard">Dashboard</NavDesktopHeaderLink>
+                    ) : (
+                        <NavDesktopHeaderLink path="/pricing">Pricing</NavDesktopHeaderLink>
+                    )}
                     <NavDesktopHeaderLink path={null}>
                         <LoginButton buttonClassName={linkStyles.link} anchorClassName={linkStyles.link} />
                     </NavDesktopHeaderLink>

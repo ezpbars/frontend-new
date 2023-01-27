@@ -1,0 +1,6 @@
+.container {
+    background-color: #bcbebe;
+}
+.description {
+    composes: body-1 from "../../shared/typography.module.css";
+}

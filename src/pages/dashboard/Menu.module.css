@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1em;
+    text-align: right;
+    min-width: 250px;
+    background: #dadbdb;
+    min-height: 80vh;
+    height: 100%;
+}
+@media screen and (max-width: 992px) {
+    .container {
+        display: none;
+    }
+}
+.header {
+    background: #c6c7c7;
+    padding: 10px 20px;
+}
+.menuTitle {
+    composes: header-regular from "../../shared/typography.module.css";
+    font-size: 22px;
+    text-decoration: none;
+    color: black;
+}
+.menuOptions {
+    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    padding-bottom: 25px;
+}
+.menuOption {
+    padding: 5px;
+    padding-right: 20px;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+.menuLink {
+    composes: body-1 from "../../shared/typography.module.css";
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+.active {
+    background: #c6c7c7;
+    padding-right: 8px;
+    border-right: 3px solid rgb(80, 84, 89);
+}
+.menuOption:hover {
+    background: #bcbebe;
+    padding-right: 10px;
+}

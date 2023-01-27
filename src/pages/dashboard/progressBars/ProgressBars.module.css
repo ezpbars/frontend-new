@@ -1,0 +1,8 @@
+.container {
+    margin: 20px;
+}
+.header {
+    composes: header-lower from "../../../shared/typography.module.css";
+    font-size: 28px;
+    text-align: center;
+}

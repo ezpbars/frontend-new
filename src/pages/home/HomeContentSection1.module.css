@@ -1,14 +1,26 @@
+.container {
+    padding: 7em 0;
+    background: linear-gradient(to bottom, #dadbdb, #ffffff 50%, #c6c7c7);
+}
 .row {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 50px;
 }
-.container {
-    padding: 7em 0;
+.columnContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    min-width: 350px;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 8px;
+    border: 2px solid #d5d7d7;
 }
 .sectionHeader {
     composes: header-bold from "../../shared/typography.module.css";
-    font-size: 2.5em;
+    font-size: 38px;
     text-align: center;
     margin-bottom: 1em;
 }

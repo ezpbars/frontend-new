@@ -1,0 +1,87 @@
+.container {
+    border: 1px solid black;
+    padding: 15px;
+    max-width: 600px;
+    height: 230px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+.footerOpen {
+    height: 260px;
+}
+.header {
+    composes: header-lower from "../../../shared/typography.module.css";
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid black;
+}
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 155px;
+    padding: 0 10px 0 20px;
+}
+.row:nth-child(odd) {
+    background: rgba(158, 158, 158, 0.3);
+}
+.row:nth-child(even) {
+    background: #fff;
+}
+.headers {
+    display: flex;
+    flex-flow: row nowrap;
+    border-bottom: 1px solid gray;
+    gap: 120px;
+
+    composes: body-1 from "../../../shared/typography.module.css";
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    text-align: center;
+}
+.unitAmountHeader {
+    width: 165px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.unitsHeader {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.unitPriceHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 85px;
+}
+.units {
+    width: 65px;
+    composes: body-1 from "../../../shared/typography.module.css";
+    font-size: 14px;
+}
+.unitPrice {
+    composes: body-1 from "../../../shared/typography.module.css";
+    font-size: 14px;
+}
+.unitAmount {
+    width: 90px;
+    composes: body-1 from "../../../shared/typography.module.css";
+    font-size: 14px;
+}
+.footer {
+    padding: 15px 5px 0 5px;
+}
+.footerText {
+    composes: body-1 from "../../../shared/typography.module.css";
+    font-size: 11px;
+    line-height: normal;
+    color: rgba(50, 50, 50, 0.7);
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.infoIcon {
+    height: 10px;
+    width: 10px;
+    background: url("../../../img/Info-Button.svg");
+}
