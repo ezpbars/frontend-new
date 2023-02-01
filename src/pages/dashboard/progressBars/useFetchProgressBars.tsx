@@ -2,15 +2,16 @@ import { ReactElement, useEffect, useMemo, useState } from "react";
 import { apiFetch } from "../../../shared/ApiConstants";
 import { describeResponseError } from "../../../shared/errors/describeResponseError";
 import { ErrorFetchFailed } from "../../../shared/errors/ErrorFetchFailed";
-import { ErrorUnknown } from "../../../shared/errors/ErrorUnkown";
+import { ErrorUnknown } from "../../../shared/errors/ErrorUnknown";
 import { LoginContextValue } from "../../../shared/LoginContext";
+import { parseProgressBar } from "./parseProgressBar";
 
 export type ProgressBar = {
     uid: string;
     name: string;
     samplingMaxCount: number;
     samplingMaxAgeSeconds: number;
-    samplingTechnique: string;
+    samplingTechnique: "systematic" | "simpleRandom";
     version: number;
     createdAt: number;
     defaultStepConfig: ProgressBarStep;
@@ -80,57 +81,12 @@ export const useFetchProgressBars = ({
                     throw progressBarsResponse;
                 }
                 const progressBarsData: {
-                    items: {
-                        uid: string;
-                        name: string;
-                        sampling_max_count: number;
-                        sampling_max_age_seconds: number;
-                        sampling_technique: string;
-                        version: number;
-                        created_at: number;
-                        default_step_config: {
-                            uid: string;
-                            name: string;
-                            position: number;
-                            iterated: boolean;
-                            one_off_technique: "percentile" | "harmonicMean" | "geometricMean" | "arithmeticMean";
-                            one_off_percentile: number;
-                            iterated_technique:
-                                | "bestFit.linear"
-                                | "percentile"
-                                | "harmonicMean"
-                                | "geometricMean"
-                                | "arithmeticMean";
-                            iterated_percentile: number;
-                            created_at: number;
-                        };
-                    }[];
+                    items: any[];
                 } = await progressBarsResponse.json();
                 if (!active) {
                     return;
                 }
-                setProgressBars(
-                    progressBarsData.items.map((item) => ({
-                        uid: item.uid,
-                        name: item.name,
-                        samplingMaxCount: item.sampling_max_count,
-                        samplingMaxAgeSeconds: item.sampling_max_age_seconds,
-                        samplingTechnique: item.sampling_technique,
-                        version: item.version,
-                        createdAt: item.created_at,
-                        defaultStepConfig: {
-                            uid: item.default_step_config.uid,
-                            name: item.default_step_config.name,
-                            position: item.default_step_config.position,
-                            iterated: item.default_step_config.iterated,
-                            oneOffTechnique: item.default_step_config.one_off_technique,
-                            oneOffPercentile: item.default_step_config.one_off_percentile,
-                            iteratedTechnique: item.default_step_config.iterated_technique,
-                            iteratedPercentile: item.default_step_config.iterated_percentile,
-                            createdAt: item.default_step_config.created_at,
-                        },
-                    }))
-                );
+                setProgressBars(progressBarsData.items.map(parseProgressBar));
             } catch (e) {
                 if (!active) {
                     return;

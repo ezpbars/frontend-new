@@ -3,9 +3,10 @@
     flex-flow: row nowrap;
     margin: 25px;
 }
-.row {
+.left {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
+    gap: 25px;
 }
 .create {
     margin: 0 auto;

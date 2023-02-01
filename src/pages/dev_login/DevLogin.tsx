@@ -8,7 +8,7 @@ import styles from "./DevLogin.module.css";
  * they are directed to amazon cognito to login.
  */
 export const DevLogin = (): ReactElement => {
-    const [sub, setSub] = useState("");
+    const [sub, setSub] = useState("obama");
     const [working, setWorking] = useState(false);
     const [error, setError] = useState<ReactElement | null>(null);
 

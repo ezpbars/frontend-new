@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+}
+.deleteButton {
+    background: url("../../../img/delete.svg");
+    height: 18px;
+    width: 18px;
+}
+.editButton {
+    background: url("../../../img/edit.svg");
+    height: 18px;
+    width: 18px;
+}
+.editButtonEditing {
+    background: url("../../../img/check.svg");
+    height: 18px;
+    width: 18px;
+}
+.moreButton {
+    background: url("../../../img/more.svg");
+    height: 18px;
+    width: 18px;
+}

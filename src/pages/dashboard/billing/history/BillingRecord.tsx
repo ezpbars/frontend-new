@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
-import { BillingHistoryItem } from "./BillingHistory";
 import styles from "./BillingHistory.module.css";
+import { BillingHistoryItem } from "./useFetchHistory";
 
 type BillingRecordProps = {
     record: BillingHistoryItem;

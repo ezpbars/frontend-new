@@ -1,0 +1,26 @@
+.container {
+    padding: 20px;
+    width: 425px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.pbarName {
+    composes: body-1 from "../../../shared/typography.module.css";
+    font-weight: 500;
+}
+.infoContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}

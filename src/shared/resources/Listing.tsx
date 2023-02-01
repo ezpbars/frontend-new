@@ -10,11 +10,11 @@ type ListingProps = {
 export const Listing = ({ itemsSection, createSection, filterSection }: ListingProps): ReactElement => {
     return (
         <div className={styles.container}>
-            <div className={styles.row}>
+            <div className={styles.left}>
                 <div className={styles.items}>{itemsSection}</div>
-                <div className={styles.filters}>{filterSection}</div>
+                <div className={styles.create}>{createSection}</div>
             </div>
-            <div className={styles.create}>{createSection}</div>
+            <div className={styles.filters}>{filterSection}</div>
         </div>
     );
 };

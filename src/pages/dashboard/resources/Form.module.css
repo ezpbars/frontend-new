@@ -1,3 +1,24 @@
+.submitButton {
+    padding: 5px 8px;
+    border-radius: 5px;
+    background-color: rgba(171, 171, 171, 0.555);
+}
 .submitButton:hover {
     cursor: pointer;
+}
+.container {
+    padding: 10px 20px;
+    border: 1px solid black;
+}
+.title {
+    composes: header-lower from "../../../shared/typography.module.css";
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 20px;
 }

@@ -2,7 +2,7 @@ import { ReactElement, useEffect, useMemo, useState } from "react";
 import { apiFetch } from "../../../../shared/ApiConstants";
 import { describeResponseError } from "../../../../shared/errors/describeResponseError";
 import { ErrorFetchFailed } from "../../../../shared/errors/ErrorFetchFailed";
-import { ErrorUnknown } from "../../../../shared/errors/ErrorUnkown";
+import { ErrorUnknown } from "../../../../shared/errors/ErrorUnknown";
 import { LoginContextValue } from "../../../../shared/LoginContext";
 
 type FetchCurrentState = {
