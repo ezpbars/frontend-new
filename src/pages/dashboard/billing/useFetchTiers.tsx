@@ -39,7 +39,13 @@ type FetchTiersState = {
     error: ReactElement | null;
 };
 
-export const useFetchTiers = ({ loginContext }: { loginContext: LoginContextValue }): FetchTiersState => {
+export const useFetchTiers = ({
+    loginContext,
+    limit = 10,
+}: {
+    loginContext: LoginContextValue;
+    limit?: number;
+}): FetchTiersState => {
     const [tiers, setTiers] = useState<Tier[]>([]);
     const [error, setError] = useState<ReactElement | null>(null);
 
@@ -69,6 +75,7 @@ export const useFetchTiers = ({ loginContext }: { loginContext: LoginContextValu
                                     dir: "asc",
                                 },
                             ],
+                            limit: limit,
                         }),
                     },
                     loginContext
@@ -121,7 +128,7 @@ export const useFetchTiers = ({ loginContext }: { loginContext: LoginContextValu
                 }
             }
         }
-    }, [loginContext]);
+    }, [loginContext, limit]);
 
     const result = useMemo(() => ({ tiers, error }), [tiers, error]);
     return result;

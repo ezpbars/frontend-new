@@ -27,6 +27,9 @@ export const BillingRecord = ({ record }: BillingRecordProps): ReactElement => {
                     {(record.cost / 100).toLocaleString("en-US", { style: "currency", currency: "USD" })}
                 </div>
             </div>
+            <a className={styles.invoice} href={record.hostedInvoiceUrl}>
+                Stripe Invoice{" "}
+            </a>
         </div>
     );
 };

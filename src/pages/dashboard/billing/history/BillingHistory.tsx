@@ -4,10 +4,14 @@ import styles from "./BillingHistory.module.css";
 import { LoginContext } from "../../../../shared/LoginContext";
 import { BillingHistoryItem, useFetchHistory } from "./useFetchHistory";
 import { Listing } from "../../../../shared/resources/Listing";
+import { BillingHistoryFilters, newBillingHistoryFilters } from "./BillingHistoryFilters";
+import { BillingHistorySort } from "./BillingHistorySort";
 
 export const BillingHistory = (): ReactElement => {
     const loginContext = useContext(LoginContext);
-    const { history: fetchedHistory, error, records } = useFetchHistory({ loginContext });
+    const [filters, setFilters] = useState<BillingHistoryFilters>(newBillingHistoryFilters({}));
+    const [sort, setSort] = useState<BillingHistorySort | undefined>(undefined);
+    const { history: fetchedHistory, error, records } = useFetchHistory({ loginContext, sort, filters });
     const [history, setHistory] = useState<BillingHistoryItem[]>([]);
 
     useEffect(() => {
@@ -16,7 +20,7 @@ export const BillingHistory = (): ReactElement => {
 
     const itemsView = useMemo(() => {
         return (
-            <div>
+            <div className={styles.itemsView}>
                 {history.map((record) => (
                     <BillingRecord key={record.uid} record={record} />
                 ))}

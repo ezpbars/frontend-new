@@ -26,7 +26,7 @@ export const EstimatedCost = ({ usedTraces, tiers }: EstimatedCostProps): ReactE
     const { subtotal, augmentedTiers } = useCalculateSubtotal({ tiers, usedTraces });
 
     return (
-        <div className={styles.estimatdCostContainer}>
+        <div className={styles.estimatedCostContainer}>
             <div className={styles.costBreakdown}>
                 Cost Breakdown:
                 {augmentedTiers.map((augmentedTier) => (

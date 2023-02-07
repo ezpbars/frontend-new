@@ -4,6 +4,8 @@ import { describeResponseError } from "../../../../shared/errors/describeRespons
 import { ErrorFetchFailed } from "../../../../shared/errors/ErrorFetchFailed";
 import { ErrorUnknown } from "../../../../shared/errors/ErrorUnknown";
 import { LoginContextValue } from "../../../../shared/LoginContext";
+import { BillingHistoryFilters } from "./BillingHistoryFilters";
+import { BillingHistorySort, SortOptions } from "./BillingHistorySort";
 
 export type BillingHistoryItem = {
     /**
@@ -60,7 +62,17 @@ type FetchHistoryState = {
     records: boolean;
 };
 
-export const useFetchHistory = ({ loginContext }: { loginContext: LoginContextValue }): FetchHistoryState => {
+export const useFetchHistory = ({
+    loginContext,
+    sort = SortOptions[0].val,
+    filters,
+    limit = 10,
+}: {
+    loginContext: LoginContextValue;
+    sort?: BillingHistorySort;
+    filters: BillingHistoryFilters;
+    limit?: number;
+}): FetchHistoryState => {
     const [records, setRecords] = useState(false);
     const [history, setHistory] = useState<BillingHistoryItem[]>([]);
     const [error, setError] = useState<ReactElement | null>(null);
@@ -85,12 +97,9 @@ export const useFetchHistory = ({ loginContext }: { loginContext: LoginContextVa
                             "content-type": "application/json; charset=utf-8",
                         },
                         body: JSON.stringify({
-                            sort: [
-                                {
-                                    key: "period_started_at",
-                                    dir: "asc",
-                                },
-                            ],
+                            filters: filters,
+                            sort: sort,
+                            limit: limit,
                         }),
                     },
                     loginContext
@@ -149,7 +158,7 @@ export const useFetchHistory = ({ loginContext }: { loginContext: LoginContextVa
                 }
             }
         }
-    }, [loginContext]);
+    }, [loginContext, limit, sort, filters]);
 
     const result = useMemo(() => ({ history, error, records }), [history, error, records]);
     return result;

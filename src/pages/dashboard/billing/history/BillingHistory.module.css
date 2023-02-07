@@ -23,6 +23,10 @@
     flex-flow: column nowrap;
     align-items: center;
 }
+.itemsView {
+    max-height: 500px;
+    overflow-y: auto;
+}
 /* #region record */
 .container {
     display: flex;
@@ -35,6 +39,7 @@
     width: 425px;
 }
 .row {
+    composes: body-1 from "../../../../shared/typography.module.css";
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -43,5 +48,11 @@
     display: flex;
     flex-flow: row nowrap;
     gap: 0.5em;
+}
+.invoice {
+    composes: body-1 from "../../../../shared/typography.module.css";
+    text-decoration: none;
+    color: black;
+    text-align: left;
 }
 /* #endregion */

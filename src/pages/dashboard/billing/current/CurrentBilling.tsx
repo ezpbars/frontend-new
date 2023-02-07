@@ -44,8 +44,9 @@ export const CurrentBilling = (): ReactElement => {
             {currentTracesError}
             {fetchTiersError}
             {`Since ${new Date(start * 1000).toDateString()} you have used ${traces} traces`}
-
-            <EstimatedCost usedTraces={traces} tiers={tiers} />
+            <div className={styles.breakdownContainer}>
+                {traces > 0 ? <EstimatedCost usedTraces={traces} tiers={tiers} /> : null}
+            </div>
         </div>
     );
 };
