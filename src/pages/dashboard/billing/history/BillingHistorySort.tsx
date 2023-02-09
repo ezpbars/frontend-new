@@ -47,6 +47,4 @@ export const SortOptions = [
     { name: "Period Started At (Least to Most Recent)", val: PeriodStartedAtLeastToMostRecent },
     { name: "Traces (Most to Least)", val: TracesMostToLeast },
     { name: "Traces (Least to Most)", val: TracesLeastToMost },
-    { name: "Cost (High to Low)", val: CostMostToLeast },
-    { name: "Cost (Low to High)", val: CostLeastToMost },
 ];

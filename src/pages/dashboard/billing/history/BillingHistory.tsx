@@ -5,13 +5,14 @@ import { LoginContext } from "../../../../shared/LoginContext";
 import { BillingHistoryItem, useFetchHistory } from "./useFetchHistory";
 import { Listing } from "../../../../shared/resources/Listing";
 import { BillingHistoryFilters, newBillingHistoryFilters } from "./BillingHistoryFilters";
-import { BillingHistorySort } from "./BillingHistorySort";
+import { BillingHistorySort, SortOptions } from "./BillingHistorySort";
+import { BillingHistoryFilterController } from "./BillingHistoryFilterController";
 
 export const BillingHistory = (): ReactElement => {
     const loginContext = useContext(LoginContext);
     const [filters, setFilters] = useState<BillingHistoryFilters>(newBillingHistoryFilters({}));
-    const [sort, setSort] = useState<BillingHistorySort | undefined>(undefined);
-    const { history: fetchedHistory, error, records } = useFetchHistory({ loginContext, sort, filters });
+    const [sort, setSort] = useState<BillingHistorySort>(SortOptions[0].val);
+    const { history: fetchedHistory, error, records } = useFetchHistory({ loginContext, sort, filters, limit: 3 });
     const [history, setHistory] = useState<BillingHistoryItem[]>([]);
 
     useEffect(() => {
@@ -28,20 +29,25 @@ export const BillingHistory = (): ReactElement => {
         );
     }, [history]);
 
-    const createSectionView = useMemo(() => {
-        return <></>;
-    }, []);
-
     const filterSectionView = useMemo(() => {
-        return <></>;
-    }, []);
+        return (
+            <div>
+                <BillingHistoryFilterController
+                    filters={filters}
+                    setFilters={setFilters}
+                    sort={sort}
+                    setSort={setSort}
+                />
+            </div>
+        );
+    }, [filters, sort]);
 
     return records ? (
         <div className={styles.historyContainer}>
             <div className={styles.historyHeader}>Your Billing History</div>
             {error}
             <div className={styles.listContainer}>
-                <Listing itemsSection={itemsView} createSection={createSectionView} filterSection={filterSectionView} />
+                <Listing itemsSection={itemsView} createSection={<></>} filterSection={filterSectionView} />
             </div>
         </div>
     ) : (
